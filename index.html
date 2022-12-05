@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book shop</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body onload="onInit()">
+    <h1>Welcome to my bookshop!</h1>
+    <button class="new-book-btn" onclick="onAddBook()">Create a new book</button>
+    <section class="filters-container">
+        <label>
+            Max Price:
+            <input class="filter-max-price" oninput="onPriceFilter(this.value)" type="number" value="0">
+        </label>
+        <label>
+            Minimum Rate:
+            <input class="filter-min-rate" oninput="onRateFilter(this.value)" type="number" value="0">
+        </label>
+        <label>
+            Search Book:
+            <input class="filter-by-title" oninput="onSearch(this.value)" type="text" value=""
+                placeholder="Search book">
+        </label>
+    </section>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th colspan="3">Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <section class="paging-btns">
+        <button disabled class="prev-btn" onclick="onPrevPage(this)">Previous</button>
+        <button class="next-btn" onclick="onNextPage(this)">Next</button>
+    </section>
+    <div class="book-modal">
+        <div onclick="onCloseModal(this.parentElement)" class="close-modal">X</div>
+        <span></span>
+    </div>
+
+    <script src="./js/services/storage-service.js"></script>
+    <script src="./js/services/book-service.js"></script>
+    <script src="./js/book-controller.js"></script>
+</body>
+
+</html>
